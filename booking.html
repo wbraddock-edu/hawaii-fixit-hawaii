@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request a Free Quote | Fix-It Hawaii — Kapaa, Kauai</title>
+  <meta name="description" content="Request a free estimate from Fix-It Hawaii — Kauai's trusted handyman service. Drywall, carpentry, painting, plumbing, and more."/>
+  <meta property="og:title" content="Request a Free Quote | Fix-It Hawaii"/>
+  <meta property="og:description" content="Request a free estimate from Fix-It Hawaii — Kauai's trusted handyman service. Drywall, carpentry, painting, plumbing, and more."/>
+  <meta property="og:image" content="https://picsum.photos/1200/630?random=2001"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  
+</head>
+<body>
+
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner container">
+        <a href="index.html" class="logo" aria-label="Fix-It Hawaii Home">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <rect x="4" y="18" width="36" height="22" rx="4" fill="#1F618D"/>
+            <rect x="8" y="12" width="8" height="10" rx="2" fill="#F39C12"/>
+            <rect x="20" y="8" width="8" height="14" rx="2" fill="#F39C12"/>
+            <rect x="32" y="14" width="6" height="8" rx="2" fill="#F39C12"/>
+            <rect x="16" y="24" width="12" height="10" rx="2" fill="#F39C12"/>
+          </svg>
+          <span>Fix-It Hawaii</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="blog.html">Blog</a>
+          <a href="booking.html">Booking</a>
+          <a href="faq.html">FAQ</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="admin.html">Admin</a>
+          <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+      </div>
+    </header>
+
+    <section class="page-hero animate-in">
+      <div class="container">
+        <h1>Request a Free Quote</h1>
+        <p>Tell us what needs fixing — we'll get back to you within a few hours with pricing and availability.</p>
+      </div>
+    </section>
+    <section class="booking-section container animate-in">
+      <div class="booking-wrapper">
+        <div class="step-indicators">
+          <div class="step-item active" id="step-ind-1">
+            <div class="step-dot">1</div>
+            <span>Service</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" id="step-ind-2">
+            <div class="step-dot">2</div>
+            <span>Schedule</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" id="step-ind-3">
+            <div class="step-dot">3</div>
+            <span>Contact</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item" id="step-ind-4">
+            <div class="step-dot">4</div>
+            <span>Confirm</span>
+          </div>
+        </div>
+
+        <form id="bookingForm" class="booking-form">
+          <div class="form-step active" id="step1">
+            <h2>What Do You Need Fixed?</h2>
+            <div class="service-select-grid">
+              <label class="service-option">
+                <input type="radio" name="service" value="Drywall &amp; Patching"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">🔨</span>
+                  <span>Drywall &amp; Patching</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Carpentry &amp; Trim"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">🪵</span>
+                  <span>Carpentry &amp; Trim</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Interior or Exterior Painting"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">🎨</span>
+                  <span>Painting</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Plumbing Repairs"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">🔧</span>
+                  <span>Plumbing Repairs</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Electrical Basics"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">⚡</span>
+                  <span>Electrical Basics</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Doors &amp; Windows"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">🚪</span>
+                  <span>Doors &amp; Windows</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Multiple Repairs (Honey-Do List)"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">📋</span>
+                  <span>Multiple Repairs</span>
+                </div>
+              </label>
+              <label class="service-option">
+                <input type="radio" name="service" value="Other / Not Listed"/>
+                <div class="service-opt-card">
+                  <span class="svc-icon">💬</span>
+                  <span>Other</span>
+                </div>
+              </label>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next →</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step2">
+            <h2>When Works Best for You?</h2>
+            <div class="form-group">
+              <label for="prefDate">Preferred Date</label>
+              <input type="date" id="prefDate" name="date" required/>
+            </div>
+            <div class="form-group">
+              <label for="prefTime">Preferred Time</label>
+              <select id="prefTime" name="time">
+                <option value="">Select a time</option>
+                <option>7:00 AM – 9:00 AM</option>
+                <option>9:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 1:00 PM</option>
+                <option>1:00 PM – 3:00 PM</option>
+                <option>3:00 PM – 5:00 PM</option>
+                <option>Flexible / Any time</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep(2)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next →</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step3">
+            <h2>Your Contact Info</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Hana" required/>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Reyes" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="hana@example.com" required/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(808) 555-0100"/>
+            </div>
+            <div class="form-group">
+              <label for="address">Property Address on Kauai</label>
+              <input type="text" id="address" name="address" placeholder="4-2000 Kuhio Hwy, Kapaa, HI"/>
+            </div>
+            <div class="form-group">
+              <label for="notes">Describe the Repair Needed</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Large hole in bedroom wall, leaky faucet under kitchen sink, etc."></textarea>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep(3)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(3)">Review →</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step4">
+            <h2>Review Your Request</h2>
+            <div class="confirmation-card">
+              <div id="summaryContent" class="summary-grid"></div>
+              <p class="confirm-note">We'll contact you within a few hours with a free written estimate.</p>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn btn-secondary" onclick="prevStep(4)">← Edit</button>
+              <button type="button" class="btn btn-primary" onclick="submitBooking()">Send Request ✓</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step5">
+            <div class="success-message">
+              <div class="success-icon">✅</div>
+              <h2>Request Sent!</h2>
+              <p>Mahalo! We'll review your request and contact you with a free estimate very soon.</p>
+              <a href="index.html" class="btn btn-primary">Return Home</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
+              <rect x="4" y="18" width="36" height="22" rx="4" fill="#1F618D"/>
+              <rect x="8" y="12" width="8" height="10" rx="2" fill="#F39C12"/>
+              <rect x="20" y="8" width="8" height="14" rx="2" fill="#F39C12"/>
+              <rect x="32" y="14" width="6" height="8" rx="2" fill="#F39C12"/>
+              <rect x="16" y="24" width="12" height="10" rx="2" fill="#F39C12"/>
+            </svg>
+            <p>Kauai's trusted handyman service. No job too big, no island too far.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Pages</h4>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blog</a>
+            <a href="booking.html">Booking</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reviews.html">Reviews</a>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>4-1543 Kuhio Hwy<br>Kapaa, HI 96746</p>
+            <p><a href="tel:+18085550120">(808) 555-0120</a></p>
+            <p>Mon–Sat: 7am–6pm</p>
+            <p>Emergency calls available</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Fix-It Hawaii. All rights reserved.</p>
+          <p>Powered by <a href="https://designholistically.com" target="_blank">Design Holistically</a></p>
+        </div>
+      </div>
+    </footer>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard | Fix-It Hawaii</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .admin-layout{display:flex;min-height:100vh;}
+    .admin-sidebar{width:220px;background:var(--clr-primary);color:#fff;padding:1.5rem 0;flex-shrink:0;}
+    .admin-sidebar .sidebar-logo{padding:0 1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.2);font-weight:700;font-size:1rem;display:flex;align-items:center;gap:.5rem;}
+    .admin-nav a{display:block;padding:.75rem 1.25rem;color:rgba(255,255,255,.85);text-decoration:none;transition:background .2s;}
+    .admin-nav a:hover,.admin-nav a.active{background:rgba(255,255,255,.15);color:#fff;}
+    .admin-main{flex:1;padding:2rem;background:var(--clr-bg);}
+    .admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;margin-bottom:2rem;}
+    .stat-card{background:var(--clr-surface);border-radius:var(--radius);padding:1.5rem;text-align:center;border-top:4px solid var(--clr-accent);}
+    .stat-card .stat-num{font-size:2.5rem;font-weight:800;color:var(--clr-primary);line-height:1;}
+    .stat-card .stat-label{font-size:.875rem;color:var(--clr-muted);margin-top:.5rem;}
+    .admin-table-wrap{background:var(--clr-surface);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;overflow-x:auto;}
+    .admin-table-wrap h2{margin-bottom:1rem;font-size:1.1rem;}
+    table{width:100%;border-collapse:collapse;}
+    th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--clr-border);}
+    th{font-weight:700;color:var(--clr-muted);font-size:.8rem;text-transform:uppercase;}
+    .badge{padding:.25rem .75rem;border-radius:2rem;font-size:.75rem;font-weight:600;}
+    .badge-new{background:rgba(31,97,141,.15);color:var(--clr-primary);}
+    .badge-pending{background:rgba(243,156,18,.15);color:#B7770D;}
+    .badge-done{background:rgba(39,174,96,.15);color:#1E8449;}
+    #loginOverlay{position:fixed;inset:0;background:rgba(13,27,38,.96);display:flex;align-items:center;justify-content:center;z-index:9999;}
+    .login-box{background:var(--clr-surface);border-radius:var(--radius);padding:2.5rem;width:100%;max-width:380px;text-align:center;}
+    .login-box h2{margin-bottom:1.5rem;color:var(--clr-primary);}
+    #loginError{color:#e74c3c;margin-top:.75rem;display:none;font-size:.875rem;}
+    @media(max-width:768px){.admin-sidebar{display:none;}.admin-main{padding:1rem;}}
+  </style>
+</head>
+<body>
+  <div id="loginOverlay">
+    <div class="login-box">
+      <svg width="48" height="48" viewBox="0 0 44 44" fill="none" style="margin:0 auto 1rem">
+        <rect x="4" y="18" width="36" height="22" rx="4" fill="#1F618D"/>
+        <rect x="8" y="12" width="8" height="10" rx="2" fill="#F39C12"/>
+        <rect x="20" y="8" width="8" height="14" rx="2" fill="#F39C12"/>
+        <rect x="32" y="14" width="6" height="8" rx="2" fill="#F39C12"/>
+        <rect x="16" y="24" width="12" height="10" rx="2" fill="#F39C12"/>
+      </svg>
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <input type="password" id="adminPw" placeholder="Enter password" style="width:100%;padding:.75rem;border-radius:var(--radius);border:2px solid var(--clr-border);font-size:1rem;margin-bottom:1rem;"/>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+        <p id="loginError">Incorrect password. Try again.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <svg width="24" height="24" viewBox="0 0 44 44" fill="none">
+          <rect x="4" y="18" width="36" height="22" rx="4" fill="rgba(255,255,255,.9)"/>
+          <rect x="8" y="12" width="8" height="10" rx="2" fill="#F39C12"/>
+          <rect x="20" y="8" width="8" height="14" rx="2" fill="#F39C12"/>
+        </svg>
+        Fix-It Admin
+      </div>
+      <nav class="admin-nav">
+        <a href="#" class="active">📊 Dashboard</a>
+        <a href="#quotes">📋 Quote Requests</a>
+        <a href="#messages">💬 Messages</a>
+        <a href="#stats">📈 Stats</a>
+        <a href="index.html">← View Site</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h1 style="font-size:1.5rem;margin-bottom:.25rem;">Dashboard</h1>
+          <p style="color:var(--clr-muted);font-size:.875rem;">Fix-It Hawaii — Kapaa, Kauai</p>
+        </div>
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num">31</div><div class="stat-label">Quote Requests</div></div>
+        <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">This Week</div></div>
+        <div class="stat-card"><div class="stat-num">14</div><div class="stat-label">Messages</div></div>
+        <div class="stat-card"><div class="stat-num">4.9★</div><div class="stat-label">Avg Rating</div></div>
+      </div>
+
+      <div class="admin-table-wrap" id="quotes">
+        <h2>Recent Quote Requests</h2>
+        <table>
+          <thead><tr><th>Name</th><th>Service</th><th>Date Requested</th><th>Location</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Hana Reyes</td><td>Drywall &amp; Patching</td><td>Jun 29, 2026</td><td>Kapaa</td><td><span class="badge badge-new">New</span></td></tr>
+            <tr><td>Makoa Tanaka</td><td>Multiple Repairs</td><td>Jun 28, 2026</td><td>Lihue</td><td><span class="badge badge-pending">Pending</span></td></tr>
+            <tr><td>Lena Kahanamoku</td><td>Painting</td><td>Jun 27, 2026</td><td>Poipu</td><td><span class="badge badge-done">Done</span></td></tr>
+            <tr><td>Brian Santos</td><td>Carpentry &amp; Trim</td><td>Jun 26, 2026</td><td>Princeville</td><td><span class="badge badge-done">Done</span></td></tr>
+            <tr><td>Alicia Ferreira</td><td>Electrical Basics</td><td>Jun 25, 2026</td><td>Kapaa</td><td><span class="badge badge-done">Done</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="admin-table-wrap" id="messages">
+        <h2>Recent Messages</h2>
+        <table>
+          <thead><tr><th>From</th><th>Email</th><th>Subject</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Dave Hollis</td><td>dave@mail.com</td><td>Pre-sale whole-house repaint — timing?</td><td><span class="badge badge-new">New</span></td></tr>
+            <tr><td>Keiko Nakamura</td><td>keiko@mail.com</td><td>Annual maintenance visit interest</td><td><span class="badge badge-pending">Pending</span></td></tr>
+            <tr><td>Tom Akana</td><td>tom@mail.com</td><td>Can you handle storm damage repairs?</td><td><span class="badge badge-done">Done</span></td></tr>
+            <tr><td>Maria Cruz</td><td>maria@mail.com</td><td>Weekend emergency — is that possible?</td><td><span class="badge badge-done">Done</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+
+  <!-- Powered by Design Holistically -->
+  <footer style="background:#111;color:#aaa;text-align:center;padding:1.5rem;font-size:0.85rem;font-family:sans-serif;">
+    <p>&copy; 2024. Powered by <a href="https://designholistically.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Design Holistically</a>. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
