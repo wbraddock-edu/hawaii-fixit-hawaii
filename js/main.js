@@ -26,7 +26,10 @@ if (ham && mobileNav) {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.12 });
-document.querySelectorAll('.fade-up, .fade-left').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-up, .fade-left, .animate-in').forEach(el => observer.observe(el));
+// Immediately show hero animate-in elements (above fold — no scroll needed)
+document.querySelectorAll('.hero .animate-in').forEach(el => el.classList.add('visible'));
+
 
 // Back to top
 const btt = document.getElementById('backToTop');
